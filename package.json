@@ -1,0 +1,18 @@
+{
+  "name": "sofit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "firebase emulators:start",
+    "start": "firebase deploy"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-openid-connect": "^2.0.0",
+    "firebase": "^7.24.0",
+    "firebase-tools": "^8.13.1"
+  }
+}

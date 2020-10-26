@@ -1,0 +1,16 @@
+h1,
+h2 {
+  font-family: Lato;
+}
+#signin {
+  width: 300px;
+  background-color: red;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
