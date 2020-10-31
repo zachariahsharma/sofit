@@ -4,6 +4,8 @@ const email = document.querySelector("#email");
 const password = document.querySelector("#password");
 const neighborhood = document.querySelector("#neighborhood");
 const form = document.querySelector("#form");
+const first_name = document.querySelector("#first_name");
+const last_name = document.querySelector("#last_name");
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -18,21 +20,30 @@ const firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-
+firebase.analytics();
 var db = firebase.firestore();
 form.addEventListener("submit", (e) => {
+  email_value = email.value.toLowerCase() 
   e.preventDefault();
   console.log('hola');
-  db.collection("Users").doc(`${email.value}`)
-    .set({
-      UserEmail: email.value,
-      userPassword: password.value,
-      whichNeighborhood: neighborhood.value
-    })
-    .then(function(docRef) {
-      console.log("Document written ");
-    })
-    .catch(function(error) {
-      console.error("Error adding document: ", error);
-    });
+  if(email_value === db.collection('Users').where('email', '==', `${email_value}`)) {
+    console.log('sorry your account is already made');
+  } else {
+    db.collection("Users").doc(`${email_value}`)
+      .set({
+        UserEmail: email_value,
+        userPassword: password.value,
+        whichNeighborhood: neighborhood.value,
+        firstname: first_name.value,
+        lastname: last_name.value
+      })
+      .then(function(docRef) {
+        console.log("Document written ");
+        window.open('main.html', '_self')
+        localStorage.setItem('Person Logged in', `${email_value}`)
+      })
+      .catch(function(error) {
+        console.error("Error adding document: ", error);
+      });
+  }
 });

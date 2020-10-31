@@ -1,5 +1,6 @@
-const email = document.querySelector('#email')
+let email = document.querySelector('#email')
 const form = document.querySelector('#form')
+const pass = document.querySelector("#password")
 const firebaseConfig = {
     apiKey: "AIzaSyCTbG4Q4dgjviI7yKZQne0IE78W9wk0JeE",
     authDomain: "sofit-cc1f1.firebaseapp.com",
@@ -12,13 +13,22 @@ const firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+firebase.analytics();
 var db = firebase.firestore();
-form.addEventListener('click', (e) => {
-    let docRef = db.collection('Users').doc(`${email.value}`)
+console.log('hello');
+form.addEventListener('submit', (e) => {
+    const email_value = email.value.toLowerCase()
+
+    let docRef = db.collection('Users').doc(`${email_value}`)
     e.preventDefault()
     docRef.get().then(function(doc) {
         if (doc.exists) {
-            console.log("Document data:", doc.data());
+            if(doc.data().userPassword === pass.value) {
+                window.open('main.html', '_self')
+            }else{
+                console.log('wrong password');
+            }
+            localStorage.setItem('Person Logged in', `${email.value}`)
         } else {
             // doc.data() will be undefined in this case
             console.log("No such document!");

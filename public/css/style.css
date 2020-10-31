@@ -3,7 +3,7 @@ h2 {
   font-family: Lato;
 }
 #signin {
-  width: 300px;
+  width: 450px;
   background-color: red;
   padding: 10px;
   box-sizing: border-box;
@@ -13,4 +13,15 @@ h2 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+#innersign {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 400px;
+  background-color: white;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 10px;
 }
