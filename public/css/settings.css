@@ -1,0 +1,19 @@
+#main {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  width: 30%;
+  border-radius: 20px;
+  border: lightblue solid 5px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+}
+
+#menu {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+/*# sourceMappingURL=settings.css.map */

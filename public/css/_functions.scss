@@ -1,0 +1,19 @@
+@mixin centerAlign(
+  $borderColor,
+  $border-thickness,
+  $borderStyle,
+  $borderRadius,
+  $widthr
+) {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  width: $widthr;
+  border-radius: $borderRadius;
+  border: $borderColor $borderStyle $border-thickness;
+}
+@mixin center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
