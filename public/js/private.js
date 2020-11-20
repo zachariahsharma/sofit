@@ -75,6 +75,8 @@ form.addEventListener('submit', (e) => {
             people.forEach((element) => {
                 console.log(element);
                 HandlePeople(element)
+            }).then(function() {
+                window.open('privateExerciseConsole.html', '_self')
             })
         })
     }
